@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CATC Application Form</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+/* ══════════════════════════════════════
+   BRAND VARIABLES
+══════════════════════════════════════ */
+:root {
+  --lightblack:      #28313a;
+  --grey:            #1f1f20db;
+  --bgcolor:         #007388;
+  --lightcolor:      #01fefb;
+  --red:             #dc3545;
+  --montserrat:      'Montserrat', sans-serif;
+  --poppins:         'Poppins', sans-serif;
+  --bs-light-rgb:    248, 249, 250;
+  --bs-bg-opacity:   1;
+
+  /* Derived */
+  --bgcolor-dark:    #005566;
+  --bgcolor-deep:    #003d4d;
+  --bgcolor-soft:    rgba(0,115,136,0.08);
+  --bgcolor-light:   #ddf2f5;
+  --bgcolor-xlight:  #f2fbfc;
+  --lc-glow:         rgba(1,254,251,0.18);
+  --lc-dim:          rgba(1,254,251,0.10);
+  --border-c:        rgba(0,115,136,0.15);
+  --input-bg:        #f1f3f4;
+  --text-muted-c:    #7a8a96;
+  --success:         #198754;
+}
+
+/* ══════════════════════════════════════
+   BASE
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--montserrat);
+  background: rgb(var(--bs-light-rgb));
+  color: var(--lightblack);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--poppins); }
+/* ══════════════════════════════════════
+   PAGE WRAPPER
+══════════════════════════════════════ */
+.page-wrap {
+  /* max-width: 940px; */
+  margin: 0 auto;
+
+  padding-top: 100px;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero-card {
+  background: linear-gradient(140deg, var(--bgcolor-deep) 0%, var(--bgcolor) 55%, var(--bgcolor-dark) 100%);
+  border-radius: 20px 20px 0 0;
+  padding: clamp(28px, 5vw, 54px) clamp(22px, 5vw, 52px) clamp(28px, 4vw, 44px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card .deco-a {
+  position: absolute; top: -90px; right: -70px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, var(--lc-dim), transparent 68%);
+  pointer-events: none;
+}
+.hero-card .deco-b {
+  position: absolute; bottom: -80px; left: -50px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(1,254,251,0.07), transparent 68%);
+  pointer-events: none;
+}
+.hero-card .deco-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(1,254,251,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1,254,251,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lc-dim);
+  border: 1px solid var(--lc-glow);
+  border-radius: 50px;
+  padding: 5px 15px;
+  font-family: var(--montserrat);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--lightcolor);
+  margin-bottom: 16px;
+}
+
+.hero-card h1 {
+  font-family: var(--poppins);
+  font-size: clamp(22px, 4.5vw, 46px);
+  font-weight: 800; color: #fff;
+  line-height: 1.15; margin-bottom: 12px;
+}
+.hero-card h1 .hl {
+  color: var(--lightcolor);
+  position: relative;
+}
+.hero-card h1 .hl::after {
+  content: '';
+  position: absolute; left: 0; bottom: 3px; right: 0;
+  height: 2px; background: var(--lightcolor); opacity: 0.3;
+}
+
+.hero-desc {
+  font-family: var(--montserrat);
+  font-size: clamp(12px, 1.7vw, 13.5px);
+  color: rgba(255,255,255,0.6);
+  
+   line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.hero-divider { border-color: rgba(255,255,255,0.12); }
+
+.hero-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--lightcolor);
+  color: var(--bgcolor-deep);
+  font-family: var(--poppins);
+  font-size: 14px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-email { font-size: 13px; color: rgba(255,255,255,0.55); }
+.hero-email strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+.hero-email a { color: var(--lightcolor); font-size: 11px; text-decoration: none; }
+
+.req-note { font-size: 11.5px; color: rgba(255,255,255,0.4); }
+.req-note .dot { color: var(--red); }
+
+/* ══════════════════════════════════════
+   PROGRESS STRIP
+══════════════════════════════════════ */
+.progress-strip {
+  background: #fff;
+  border-bottom: 1px solid rgba(0,115,136,0.1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.progress-strip::-webkit-scrollbar { display: none; }
+
+.steps-row {
+  display: flex;
+  min-width: 460px;
+}
+
+.s-dot {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 18px 8px 14px;
+  position: relative; cursor: pointer;
+}
+.s-dot::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px; border-radius: 2px 2px 0 0;
+  background: transparent; transition: background .3s;
+}
+.s-dot.active::after { background: var(--bgcolor); }
+.s-dot.done::after   { background: var(--success); }
+
+.s-icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background: rgb(var(--bs-light-rgb));
+  color: var(--text-muted-c);
+  font-family: var(--montserrat);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 6px;
+  transition: all .3s;
+}
+.s-dot.active .s-icon {
+  border-color: var(--bgcolor);
+  background: var(--bgcolor); color: #fff;
+  box-shadow: 0 0 0 5px var(--bgcolor-light);
+}
+.s-dot.done .s-icon {
+  border-color: var(--success);
+  background: var(--success); color: #fff;
+}
+
+.s-label {
+  font-family: var(--montserrat);
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-muted-c); text-align: center; white-space: nowrap;
+}
+.s-dot.active .s-label { color: var(--bgcolor); }
+.s-dot.done   .s-label { color: var(--success); }
+
+/* ══════════════════════════════════════
+   CARD BODY
+══════════════════════════════════════ */
+.form-card {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════
+   FORM STEPS
+══════════════════════════════════════ */
+.form-step { display: none; animation: fadeUp .32s ease; }
+.form-step.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════ */
+.section-head-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(140deg, var(--bgcolor), var(--bgcolor-dark));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-family: var(--poppins);
+  font-size: 20px; font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,115,136,0.28);
+}
+
+.section-head-icon.sm { width: 44px; height: 44px; font-size: 17px; }
+
+.section-title {
+  font-family: var(--poppins);
+  font-size: clamp(17px, 2.8vw, 24px);
+  font-weight: 700; color: var(--lightblack);
+  margin-bottom: 2px;
+}
+
+.section-desc {
+  font-family: var(--montserrat);
+  font-size: 13px; color: var(--text-muted-c); line-height: 1.6;
+}
+
+.section-divider {
+  border-color: var(--bgcolor-light);
+  border-width: 2px;
+  margin-bottom: 0;
+}
+
+/* ══════════════════════════════════════
+   SUB HEADING
+══════════════════════════════════════ */
+.sub-head {
+  font-family: var(--montserrat);
+  font-size: 10.5px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bgcolor);
+  display: flex; align-items: center; gap: 9px;
+}
+.sub-head::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(to right, var(--bgcolor-light), transparent);
+}
+
+/* ══════════════════════════════════════
+   INFO BOX
+══════════════════════════════════════ */
+.info-box {
+  background: var(--bgcolor-xlight);
+  border-left: 3px solid var(--bgcolor);
+  border-radius: 10px;
+  font-family: var(--montserrat);
+  font-size: 12.5px;
+  color: var(--bgcolor-dark);
+  line-height: 1.72;
+}
+
+/* ══════════════════════════════════════
+   FIELD LABELS
+══════════════════════════════════════ */
+.form-label-custom {
+  font-family: var(--montserrat);
+  font-size: 12.5px; font-weight: 700;
+  color: var(--lightblack);
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.f-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 21px; height: 21px; padding: 0 4px;
+  background: var(--bgcolor-light);
+  color: var(--bgcolor-dark);
+  border-radius: 5px; font-size: 10px; font-weight: 800;
+}
+.text-req { color: var(--red); }
+
+.field-hint {
+  font-family: var(--montserrat);
+  font-size: 11.5px; color: var(--text-muted-c); line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   FLAT INPUTS  (like screenshot)
+══════════════════════════════════════ */
+.form-control-flat,
+.form-select-flat {
+  background: var(--input-bg) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 13px 16px !important;
+  font-family: var(--montserrat) !important;
+  font-size: 13.5px !important;
+  color: var(--lightblack) !important;
+  transition: all .2s !important;
+  box-shadow: none !important;
+}
+.form-control-flat::placeholder { color: #9aaab4 !important; }
+.form-control-flat:focus,
+.form-select-flat:focus {
+  background: #e8f5f7 !important;
+  box-shadow: 0 0 0 3px rgba(0,115,136,0.15) !important;
+}
+.form-control-flat.error,
+.form-select-flat.error {
+  box-shadow: 0 0 0 2px var(--red) !important;
+}
+
+/* File input */
+.form-file-flat {
+  background: var(--bgcolor-xlight) !important;
+  border: 1.5px dashed rgba(0,115,136,0.28) !important;
+  border-radius: 10px !important;
+  padding: 18px 16px !important;
+  font-family: var(--montserrat) !important;
+  font-size: 13px !important;
+  color: var(--text-muted-c) !important;
+  cursor: pointer !important;
+  transition: all .2s !important;
+}
+.form-file-flat:hover {
+  border-color: var(--bgcolor) !important;
+  background: var(--bgcolor-light) !important;
+}
+
+.upload-note {
+  font-family: var(--montserrat);
+  font-size: 11px; color: var(--text-muted-c);
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* Textarea */
+textarea.form-control-flat { resize: vertical; min-height: 110px; }
+
+/* Select arrow */
+.form-select-flat {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23007388' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  padding-right: 38px !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* ══════════════════════════════════════
+   OPTION CARDS (radio / checkbox)
+══════════════════════════════════════ */
+.opt-card {
+  background: var(--input-bg);
+  border-radius: 9px;
+  padding: 11px 15px;
+  display: flex; align-items: flex-start; gap: 11px;
+  cursor: pointer;
+  transition: all .18s;
+  font-family: var(--montserrat);
+  font-size: 13px; color: var(--lightblack);
+  border: 1.5px solid transparent;
+}
+.opt-card:hover {
+  background: var(--bgcolor-light);
+  border-color: rgba(0,115,136,0.2);
+}
+.opt-card:has(input:checked) {
+  background: var(--bgcolor-light);
+  border-color: var(--bgcolor);
+  box-shadow: 0 0 0 2px rgba(0,115,136,0.08);
+}
+.opt-card input { display: none; }
+
+.mark-r, .mark-c {
+  width: 18px; height: 18px;
+  border: 2px solid #c5d2d8;
+  flex-shrink: 0; margin-top: 1px;
+  position: relative; transition: all .2s;
+}
+.mark-r { border-radius: 50%; }
+.mark-c { border-radius: 5px; }
+
+.opt-card input:checked ~ .mark-r,
+.opt-card input:checked ~ .mark-c {
+  background: var(--bgcolor); border-color: var(--bgcolor);
+}
+.opt-card input:checked ~ .mark-r::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px; border-radius: 50%; background: #fff;
+}
+.opt-card input:checked ~ .mark-c::after {
+  content: '';
+  position: absolute; left: 3px; top: 0;
+  width: 5px; height: 9px;
+  border: solid #fff; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.opt-body .opt-main { line-height: 1.5; }
+.opt-body .opt-sub  { font-size: 11px; color: var(--text-muted-c); margin-top: 1px; }
+
+.others-expand {
+  display: none;
+  padding-left: 29px;
+}
+
+/* ══════════════════════════════════════
+   CONSENT CARDS
+══════════════════════════════════════ */
+.consent-card {
+  background: var(--bgcolor-xlight);
+  border: 1.5px solid rgba(0,115,136,0.13);
+  border-radius: 14px;
+  transition: all .25s;
+}
+.consent-card:has(input:checked) {
+  border-color: var(--success);
+  background: #f0fdf4;
+}
+.cc-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(140deg, var(--bgcolor), var(--bgcolor-dark));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 16px; flex-shrink: 0;
+  transition: all .25s;
+}
+.consent-card:has(input:checked) .cc-icon {
+  background: linear-gradient(140deg, var(--success), #15803d);
+}
+.cc-title {
+  font-family: var(--montserrat);
+  font-size: 13.5px; font-weight: 700; color: var(--lightblack);
+}
+.cc-sub {
+  font-family: var(--montserrat);
+  font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted-c);
+}
+.cc-text {
+  font-family: var(--montserrat);
+  font-size: 12.5px; color: #4a5568; line-height: 1.8;
+}
+.cc-agree-row {
+  border-top: 1px solid rgba(0,115,136,0.1);
+}
+.consent-card:has(input:checked) .cc-agree-row { border-color: rgba(22,163,74,0.15); }
+.cc-agree-label {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer;
+  font-family: var(--montserrat);
+  font-size: 13px; font-weight: 700; color: var(--lightblack);
+}
+.cc-agree-label input { display: none; }
+.agree-box {
+  width: 20px; height: 20px; border-radius: 6px;
+  border: 2px solid rgba(0,115,136,0.28);
+  background: #fff; position: relative; flex-shrink: 0;
+  transition: all .2s;
+}
+.cc-agree-label input:checked + .agree-box {
+  background: var(--success); border-color: var(--success);
+}
+.cc-agree-label input:checked + .agree-box::after {
+  content: '';
+  position: absolute; left: 4px; top: 0;
+  width: 7px; height: 12px;
+  border: solid #fff; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ══════════════════════════════════════
+   CONTACT CARDS
+══════════════════════════════════════ */
+.contact-card {
+  border: 1.5px solid rgba(0,115,136,0.11);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,115,136,0.06);
+}
+.contact-head {
+  background: linear-gradient(179deg, #247389 0%, #1b4d5e 100%);
+  padding: 14px 20px;
+}
+.contact-num {
+  width: 32px; height: 32px;
+  background: var(--bgcolor); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--poppins); font-size: 16px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+.contact-head-title {
+  font-family: var(--montserrat);
+  font-size: 14px; font-weight: 700; color: #fff;
+}
+.contact-head-sub {
+  font-family: var(--montserrat);
+  font-size: 11px; color: rgba(255,255,255,0.42);
+}
+
+/* ══════════════════════════════════════
+   PHOTO GRID
+══════════════════════════════════════ */
+.photo-card {
+  border: 1.5px dashed rgba(0,115,136,0.22);
+  border-radius: 13px;
+  background: var(--bgcolor-xlight);
+  transition: all .2s;
+  height: 100%;
+}
+.photo-card:hover {
+  border-color: var(--bgcolor);
+  background: var(--bgcolor-light);
+}
+.photo-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: linear-gradient(135deg, var(--bgcolor), var(--bgcolor-dark));
+  color: #fff; border-radius: 50px;
+  padding: 3px 10px;
+  font-family: var(--montserrat);
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.photo-title {
+  font-family: var(--montserrat);
+  font-size: 13px; font-weight: 700; color: var(--lightblack);
+}
+.photo-desc {
+  font-family: var(--montserrat);
+  font-size: 11px; color: var(--text-muted-c); line-height: 1.65;
+}
+.photo-card input[type="file"] {
+  width: 100%; font-size: 11px; padding: 7px 10px;
+  border: 1px solid rgba(0,115,136,0.18);
+  border-radius: 6px; background: #fff;
+  cursor: pointer; color: var(--text-muted-c);
+  font-family: var(--montserrat);
+  transition: all .2s;
+}
+.photo-card input[type="file"]:hover { border-color: var(--bgcolor); }
+
+/* ══════════════════════════════════════
+   CTA BANNER
+══════════════════════════════════════ */
+.cta-banner {
+  background: linear-gradient(3deg, #005566 0%, #01fefb 100%, #005566 0%);
+  border-radius: 14px;
+}
+.cta-icon { font-size: 38px; color: var(--lightcolor); }
+.cta-title {
+  font-family: var(--poppins);
+  font-size: 20px; font-weight: 700; color: #fff;
+}
+.cta-desc {
+  font-family: var(--montserrat);
+  font-size: 12.5px; color: rgba(255,255,255,0.48); line-height: 1.65;
+}
+.cta-desc strong { color: var(--lightcolor); }
+
+/* ══════════════════════════════════════
+   FOOTER NAV
+══════════════════════════════════════ */
+.form-footer {
+  border-top: 1px solid rgba(0,115,136,0.1);
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-back-custom {
+  font-family: var(--montserrat);
+  font-size: 13.5px; font-weight: 700;
+  background: rgb(var(--bs-light-rgb));
+  color: var(--lightblack);
+  border: 1.5px solid #dee2e6;
+  border-radius: 10px;
+  padding: 11px 26px;
+  transition: all .2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-back-custom:hover:not(:disabled) {
+  border-color: var(--bgcolor); color: var(--bgcolor);
+  transform: translateY(-1px);
+}
+
+.btn-next-custom {
+  font-family: var(--montserrat);
+  font-size: 13.5px; font-weight: 700;
+  background: linear-gradient(135deg, var(--bgcolor), var(--bgcolor-dark));
+  color: #fff; border: none;
+  border-radius: 10px;
+  padding: 11px 28px;
+  box-shadow: 0 4px 18px rgba(0,115,136,0.3);
+  transition: all .22s;
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-next-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(0,115,136,0.38);
+}
+
+.btn-submit-custom {
+  font-family: var(--montserrat);
+  font-size: 13.5px; 
+ background-color: #007388;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 11px 28px;
+  box-shadow: 0 4px 18px rgba(40,49,58,0.28);
+  transition: all .22s;
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 500;
+  border: 0;
+}
+.btn-submit-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(40,49,58,0.38);
+}
+
+button:disabled {
+  opacity: .33 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.step-counter-num {
+  font-family: var(--poppins);
+  font-size: 24px; font-weight: 800; color: var(--lightblack); line-height: 1;
+}
+.step-counter-num span { color: var(--bgcolor); }
+.step-counter-lbl {
+  font-family: var(--montserrat);
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-muted-c);
+}
+@media screen and (max-width:576px) {
+  .btn-submit-custom {
+     padding: 11px 18px;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+  }
+  .btn-back-custom {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn-next-custom{
+    width: 100%;
+display: flex;
+justify-content: center;
+  }
+  .blank-ele{
+    display: none;
+  }
+}
+
+/* @media screen and (max-width:576px) {
+
+} */
+/* ══════════════════════════════════════
+   SUCCESS SCREEN
+══════════════════════════════════════ */
+.success-screen { display: none; }
+.success-screen.show { display: block; }
+
+.success-ring {
+  width: 86px; height: 86px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--bgcolor), var(--bgcolor-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; color: #fff;
+  box-shadow: 0 0 0 12px var(--bgcolor-light), 0 8px 32px rgba(0,115,136,0.25);
+}
+.success-title {
+  font-family: var(--poppins);
+  font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: var(--lightblack);
+}
+.success-sub {
+  font-family: var(--montserrat);
+  font-size: 13.5px; color: var(--text-muted-c); max-width: 440px; line-height: 1.8;
+}
+.success-ref {
+  background: var(--bgcolor-xlight);
+  border: 1px solid var(--border-c);
+  border-radius: 10px;
+  font-family: var(--montserrat); font-size: 13px; color: #4a5568;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.success-ref strong {
+  font-family: 'Courier New', monospace;
+  color: var(--bgcolor-dark); font-size: 15px;
+}
+.other-default-hidden{
+  display: none;
+}
+.uploading-info{
+  color: #003d4d;
+  font-size: 12px;
+}
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 576px) {
+  .hero-card { border-radius: 14px 14px 0 0; }
+  .form-card { border-radius: 0 0 14px 14px; }
+  .s-label { font-size: 7.5px; }
+  .page-wrap { padding: 14px 10px 50px; }
+  .form-footer { flex-wrap: wrap; justify-content: center !important; }
+  .step-counter-wrap { order: -1; width: 100%; text-align: center; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="
+page-wrap 
+">
+<div class="container">
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero-card">
+  <div class="deco-a"></div>
+  <div class="deco-b"></div>
+  <div class="deco-grid"></div>
+  <div class="hero-inner">
+
+    <div class="hero-badge">
+      <i class="fas fa-shield-halved"></i> Certaining Partner Network
+    </div>
+
+    <h1>Certaining Authorized Test Centre <span class="hl">(CATC)</span><br>Application Form</h1>
+
+    <p class="hero-desc">
+  Please be advised Certaining reserves the right to determine application suitability and exam type delivery. Please contact the Channel Sales team if you have specific queries prior to application form completion.
+    </p>
+
+    <hr class="hero-divider my-0 mb-3" />
+
+    <!-- <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-center gap-2">
+        <div class="hero-avatar">S</div>
+        <div class="hero-email">
+          <strong>saurabh.trainotrack@gmail.com</strong><br>
+          Signed in via Google &nbsp;&middot;&nbsp;
+          <a href="#"><i class="fas fa-rotate me-1" style="font-size:10px;"></i>Switch account</a>
+        </div>
+      </div>
+      <div class="req-note"><span class="dot me-1">&#9679;</span> Indicates required field</div>
+    </div> -->
+
+  </div>
+</div>
+
+<!-- ═══════════════ PROGRESS ═══════════════ -->
+<div class="progress-strip">
+  <div class="steps-row">
+    <div class="s-dot active" data-step="0">
+      <div class="s-icon" data-orig='<i class="fas fa-file-signature" style="font-size:11px;"></i>'><i class="fas fa-file-signature" style="font-size:11px;"></i></div>
+      <div class="s-label">Consent</div>
+    </div>
+    <div class="s-dot" data-step="1">
+      <div class="s-icon" data-orig="A">A</div>
+      <div class="s-label">Company</div>
+    </div>
+    <div class="s-dot" data-step="2">
+      <div class="s-icon" data-orig="B">B</div>
+      <div class="s-label">Contacts</div>
+    </div>
+    <div class="s-dot" data-step="3">
+      <div class="s-icon" data-orig="C">C</div>
+      <div class="s-label">Location</div>
+    </div>
+    <div class="s-dot" data-step="4">
+      <div class="s-icon" data-orig="D">D</div>
+      <div class="s-label">Photos</div>
+    </div>
+    <div class="s-dot" data-step="5">
+      <div class="s-icon" data-orig="E">E</div>
+      <div class="s-label">Access</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CARD BODY ═══════════════ -->
+<div class="form-card">
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 1 — CONSENT                ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step active p-4 p-md-5">
+  <!-- Section Header -->
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <div class="section-head-icon"><i class="fas fa-handshake" style="font-size:20px;"></i></div>
+    <p style="color: #005566;" class="mb-0">Indicates required question</p>
+    <!-- <div>
+      <div class="section-desc">Please be advised Certaining reserves the right to determine application suitability and exam type delivery. Please contact the Channel Sales team if you have specific queries prior to application form completion.</div>
+    </div> -->
+  </div>
+  <hr class="section-divider mb-4" />
+
+        <script>
+          function validateEmail(input) {
+              const email = input.value.trim();
+              const error = document.getElementById("emailError");
+
+              const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+              if (email === "") {
+                  error.style.display = "none";
+                  input.classList.remove("error");
+                  return;
+              }
+
+              if (!pattern.test(email)) {
+                  error.innerText = "Enter a valid email address";
+                  error.style.display = "block";
+                  input.classList.add("error");
+              } else {
+                  error.style.display = "none";
+                  input.classList.remove("error");
+              }
+          }
+      </script>
+
+  <!-- Email -->
+  <div class="mb-4">
+    <label class="form-label-custom">
+      <i class="fas fa-envelope" style="color:var(--bgcolor);"></i> Email Address <span class="text-req ms-1">*</span>
+    </label>
+    <input onkeyup="validateEmail(this)" type="email" class="form-control form-control-flat" placeholder="you@yourorganization.com" required />
+    <small id="emailError" style="color: red; display: none;"></small>
+  </div>
+
+  <!-- Consent 1 -->
+  <div class="consent-card p-3 p-md-4 mb-3">
+    <div class="d-flex align-items-start gap-3 mb-3">
+      <div class="cc-icon"><i class="fas fa-gavel"></i></div>
+      <div>
+        <div class="cc-title">Application Accuracy Declaration</div>
+        <div class="cc-sub mt-1">Legal &amp; Compliance</div>
+      </div>
+    </div>
+    <p class="cc-text mb-3">
+      By submitting this Application Form, I represent that (i) the information contained in this application is true and accurate to the best of my knowledge. In the event that Certaining has reason to believe that I or my Company have breached one or more of these representations, Certaining reserves the right to decline the new application no matter the level of investment up until that point. I authorize Certaining or Organizations appointed on their behalf, to undertake compliance, and verify the accuracy of any information I have provided to Certaining. I confirm that I have the consent of my Institution, and all individuals referred to in applicable information provided.
+    </p>
+    <div class="cc-agree-row pt-3 d-flex align-items-center gap-2">
+      <label class="cc-agree-label">
+        <input type="checkbox" required />
+        <span class="agree-box"></span>
+        I agree to the Application Accuracy Declaration
+      </label>
+      <span class="text-req">*</span>
+    </div>
+  </div>
+
+  <!-- Consent 2 -->
+  <div class="consent-card p-3 p-md-4">
+    <div class="d-flex align-items-start gap-3 mb-3">
+      <div class="cc-icon"><i class="fas fa-lock"></i></div>
+      <div>
+        <div class="cc-title">Privacy &amp; Data Consent</div>
+        <div class="cc-sub mt-1">GDPR &amp; Data Protection</div>
+      </div>
+    </div>
+    <p class="cc-text mb-3">
+      I have read and agree to the Terms of Service and Privacy and Cookies Policy and consent to the collection, use, transfer, and disclosure of my personal data to Certaining and its authorized third-party service providers that may be located in the U.S. or outside of the country where I am located.
+    </p>
+    <div class="cc-agree-row pt-3 d-flex align-items-center gap-2">
+      <label class="cc-agree-label">
+        <input type="checkbox" required />
+        <span class="agree-box"></span>
+        I agree to the Privacy &amp; Data Policy
+      </label>
+      <span class="text-req">*</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 2 — COMPANY                 ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step p-4 p-md-5">
+
+  <div class="d-flex align-items-start gap-3 mb-3">
+    <div class="section-head-icon">A</div>
+    <div>
+      <div class="section-title">Company Information</div>
+      <div class="section-desc">Details about the organization applying to become an Authorized Test Centre.</div>
+    </div>
+  </div>
+  <hr class="section-divider mb-4" />
+
+  <div class="info-box p-3 mb-4 d-flex gap-2">
+    <i class="fas fa-circle-info mt-1 flex-shrink-0" style="color:var(--bgcolor);"></i>
+    <div>The following information refers to the company that is applying to become a Certaining Authorized Test Center (CATC). For business and for-profit organizations must show proof as a registered institution. All organizations must have a website existing for at least <strong>6-12</strong> months. This requirement varies based on location. If your website has been in place for less than 12 months contact Channel Sales <strong>(channelsales@certaining.org)</strong> prior to completing the application.</div>
+  </div>
+
+  <!-- Row 1 -->
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-md-6">
+      <label class="form-label-custom"><span class="f-num">1</span> Company Name <span class="text-req">*</span></label>
+      <p class="field-hint mb-1">The trading name of your test centre.</p>
+      <input type="text" class="form-control form-control-flat" placeholder="e.g. Apex Testing Solutions" required />
+    </div>
+    <div class="col-12 col-md-6">
+      <label class="form-label-custom"><span class="f-num">2</span> Registered Legal Name <span class="text-req">*</span></label>
+      <p class="field-hint mb-1">Official registered name of your organization.</p>
+      <input type="text" class="form-control form-control-flat" placeholder="e.g. Apex Solutions Ltd." required />
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-md-6">
+      <label class="form-label-custom"><span class="f-num">3</span> Date Established <span class="text-req">*</span></label>
+       <div class="blank-ele">&nbsp;</div>
+      <input type="date" class="form-control form-control-flat" required />
+    </div>
+    <div class="col-12 col-md-6">
+      <label class="form-label-custom"><span class="f-num">4</span> Company Phone Number <span class="text-req">*</span></label>
+      <p class="field-hint mb-1">Mention the country code. e.g. +1 702 123 4567</p>
+     
+      <input type="text" class="form-control form-control-flat" placeholder="+1 702 123 4567" required  
+      onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" 
+      maxlength="15"
+      >
+    </div>
+  </div>
+
+  <!-- File Upload -->
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num">5</span> Business Registration / Academic License <span class="text-req">*</span></label>
+    <p class="field-hint mb-2">Max 5 files · Max 10MB each. Must confirm at least 1 year of operation. US universities exempt.</p>
+    <input type="file" class="form-control form-file-flat" multiple accept=".pdf,.jpg,.png,.doc,.docx" required   id="businessFiles"/>
+    <div class="upload-note mt-2"><i class="fas fa-paperclip"></i> PDF, JPG, PNG, DOC — max 10MB per file, up to 5 files</div>
+  </div>
+
+  <!-- Address Sub-section -->
+  <div class="sub-head my-4">
+      <span class="f-num">6</span>Physical Address of Testing Centre
+  </div>
+
+  <div class="mb-3">
+    
+    <label class="form-label-custom"> <span class="f-num pe-1">6.1</span> Street Address <span class="text-req">*</span></label>
+    <input type="text" class="form-control form-control-flat" placeholder="Street number and name" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num pe-1">6.2</span> Street Address Line 2</label>
+    <input type="text" class="form-control form-control-flat" placeholder="Suite, floor, building (optional)" />
+  </div>
+
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-md-5">
+      <label class="form-label-custom"><span class="f-num pe-1">6.3</span> City <span class="text-req">*</span></label>
+         <div class="blank-ele">&nbsp;</div>
+      <input type="text" class="form-control form-control-flat" placeholder="City" required />
+    </div>
+    <div class="col-12 col-md-4">
+      <label class="form-label-custom"><span class="f-num pe-1">6.4</span> State / Province <span class="text-req">*</span></label>
+      <div class="blank-ele">&nbsp;</div>
+      <input type="text" class="form-control form-control-flat" placeholder="State" required />
+    </div>
+    <div class="col-12 col-md-3">
+      <label class="form-label-custom"><span class="f-num pe-1">6.5</span> Postal / ZIP <span class="text-req">*</span></label>
+      <p class="field-hint mb-1">Enter "000000" if N/A.</p>
+      <input type="text" class="form-control form-control-flat" placeholder="000000" required />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num pe-1">6.5</span> Country <span class="text-req">*</span></label>
+    <input type="text" class="form-control form-control-flat" placeholder="Country" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num">7</span> Website URL <span class="text-req">*</span></label>
+    <p class="field-hint mb-1">The website must have been established for a minimum of 6-12 months. This requirement varies based on location. If the website was established for less than one year contact Channel Sales (channelsaes@certaining.org).</p>
+    <input type="text" class="form-control form-control-flat" placeholder="https://www.yoursite.com" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num">8</span> Please list your other business locations (if applicable) <span class="text-req">*</span></label>
+    <!-- <p class="field-hint mb-1">List additional locations, or type "None".</p> -->
+    <input type="text" class="form-control form-control-flat" placeholder="Address 1, Address 2… or None" required />
+  </div>
+
+</div>
+
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 3 — CONTACTS               ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step p-4 p-md-5">
+  <div class="d-flex align-items-start gap-3 mb-3">
+    <div class="section-head-icon">B</div>
+    <div>
+      <div class="section-title">Contact Information</div>
+      <div class="section-desc">To ensure efficient communication, all contact information is required, but the same person can be used for multiple contacts. Depending on your test center setup one or more Test Administrators may be required</div>
+    </div>
+  </div>
+  <hr class="section-divider mb-4" />
+
+  <div class="info-box p-3 mb-4 d-flex gap-2">
+    <i class="fas fa-envelope-open-text mt-1 flex-shrink-0" style="color:var(--bgcolor);"></i>
+    <div>Each contact person needs to have a separate business email address that is associated with the testing center. Email accounts such as Gmail, Yahoo, etc. are not permitted. Generic, fake, personal, or shared email addresses are also not permitted. This means that the part before the @ symbol in an email address must be unique to the user. The part after the @ symbol must have a domain name that represents your test center business. For example, the email address for John Doe who works at ABC Testing Center would be jdoe@abctestingcenter.com.</div>
+  </div>
+
+  <!-- Contact cards macro (repeated) -->
+  <!-- Contact 1 -->
+  <div class="contact-card mb-4">
+    <div class="contact-head d-flex align-items-center gap-3">
+      <div class="contact-num">1</div>
+      <div>
+        <div class="contact-head-title"><i class="fas fa-pen-to-square me-1"></i> Agreement Contact</div>
+        <div class="contact-head-sub">Must be authorized to sign agreements on behalf of the company</div>
+      </div>
+    </div>
+    <div class="p-3 p-md-4 "> 
+      <div class="row g-3">  
+          <div class="col-12 col-sm-6">
+          <label class="form-label-custom">Full Name <span class="text-req">*</span></label>
+          <input type="text" class="form-control form-control-flat" placeholder="First and last name" required />
+        </div>
+          <div class="col-12 col-sm-6">
+          <label class="form-label-custom">Business Phone Number <span class="text-req">*</span></label>
+          <input type="text" class="form-control form-control-flat" placeholder="+1 000 000 0000" required 
+          onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" maxlength="15"
+          />
+        </div>
+      </div>
+         <div class="mt-3"> 
+          <label class="form-label-custom">Business Email Address <span class="text-req">*</span></label>
+          <div class="section-desc">Must be a business email address. Email accounts such as Gmail, Yahoo, etc. are not permitted.</div>
+          <input type="email" class="form-control form-control-flat" placeholder="name@yourcentre.com" required />
+      </div>
+    </div>
+  </div>
+
+ <!-- Contact 2 -->
+<div class="contact-card mb-4">
+  <div class="contact-head d-flex align-items-center gap-3">
+    <div class="contact-num">2</div>
+    <div>
+      <div class="contact-head-title"><i class="fas fa-screwdriver-wrench me-1"></i> Onsite Technical Contact</div>
+      <div class="contact-head-sub">Must be available onsite for technical support and installation</div>
+    </div>
+  </div>
+  <div class="p-3 p-md-4 "> 
+    <div class="row g-3">  
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Full Name <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="First and last name" required />
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Business Phone Number <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="+1 000 000 0000" required 
+        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" maxlength="15"
+        />
+      </div>
+    </div>
+    <div class="mt-3"> 
+      <label class="form-label-custom">Business Email Address <span class="text-req">*</span></label>
+      <div class="section-desc">Must be a business email address. Email accounts such as Gmail, Yahoo, etc. are not permitted.</div>
+      <input type="email" class="form-control form-control-flat" placeholder="name@yourcentre.com" required />
+    </div>
+  </div>
+</div>
+
+<!-- Contact 3 -->
+<div class="contact-card mb-4">
+  <div class="contact-head d-flex align-items-center gap-3">
+    <div class="contact-num">3</div>
+    <div>
+      <div class="contact-head-title"><i class="fas fa-user-shield me-1"></i> Testing Administrator / Proctor</div>
+      <div class="contact-head-sub">Responsible for managing and proctoring exam sessions</div>
+    </div>
+  </div>
+  <div class="p-3 p-md-4 "> 
+    <div class="row g-3">  
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Full Name <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="First and last name" required />
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Business Phone Number <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="+1 000 000 0000" required 
+        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" maxlength="15"
+        />
+      </div>
+    </div>
+    <div class="mt-3"> 
+      <label class="form-label-custom">Business Email Address <span class="text-req">*</span></label>
+      <div class="section-desc">Must be a business email address. Email accounts such as Gmail, Yahoo, etc. are not permitted.</div>
+      <input type="email" class="form-control form-control-flat" placeholder="name@yourcentre.com" required />
+    </div>
+  </div>
+</div>
+
+<!-- Contact 4 -->
+<div class="contact-card mb-2">
+  <div class="contact-head d-flex align-items-center gap-3">
+    <div class="contact-num">4</div>
+    <div>
+      <div class="contact-head-title"><i class="fas fa-file-invoice-dollar me-1"></i> Finance / Billing Contact</div>
+      <div class="contact-head-sub">Handles invoices, payments, and financial matters</div>
+    </div>
+  </div>
+  <div class="p-3 p-md-4 "> 
+    <div class="row g-3">  
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Full Name <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="First and last name" required />
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="form-label-custom">Business Phone Number <span class="text-req">*</span></label>
+        <input type="text" class="form-control form-control-flat" placeholder="+1 000 000 0000" required 
+        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" 
+        maxlength="15"
+        />
+      </div>
+    </div>
+    <div class="mt-3"> 
+      <label class="form-label-custom">Business Email Address <span class="text-req">*</span></label>
+      <div class="section-desc">Must be a business email address. Email accounts such as Gmail, Yahoo, etc. are not permitted.</div>
+      <input type="email" class="form-control form-control-flat" placeholder="name@yourcentre.com" required />
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 4 — LOCATION               ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step p-4 p-md-5">
+
+  <div class="d-flex align-items-start gap-3 mb-3">
+    <div class="section-head-icon">C</div>
+    <div>
+      <div class="section-title">Location Details</div>
+      <div class="section-desc">Training capabilities and facility specifications for your test centre.</div>
+    </div>
+  </div>
+  <hr class="section-divider mb-4" />
+
+  <div class="sub-head mb-4"><i class="fas fa-chalkboard-user"></i>&nbsp; Training Information</div>
+
+  <!-- Q1 IT Training -->
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">1</span> Do you offer IT training? <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto">
+        <label class="opt-card">
+          <input type="radio" name="it_training1" value="yes" required />
+          <span class="mark-r"></span>
+          <div class="opt-body"><div class="opt-main">
+            <!-- <i class="fas fa-circle-check me-1" style="color:var(--bgcolor);"></i> -->
+            Yes</div></div>
+        </label>
+      </div>
+      <div class="col-auto">
+        <label class="opt-card">
+          <input type="radio" name="it_training1" value="no" />
+          <span class="mark-r"></span>
+          <div class="opt-body"><div class="opt-main">
+            <!-- <i class="fas fa-circle-xmark me-1" style="color:#aaa;"></i> -->
+            No</div></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 Who -->
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">2</span> Who do you deliver IT training to?</label>
+    <div class="row g-2 mt-1">
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_audience" value="workforce" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-users me-1" style="color:var(--bgcolor);"></i>Workforce / Students</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_audience" value="businesses" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-building me-1" style="color:var(--bgcolor);"></i>Businesses</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_audience" value="government" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-landmark me-1" style="color:var(--bgcolor);"></i>Government</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_audience" value="others" id="isCheckedOther1" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-ellipsis me-1" style="color:var(--bgcolor);"></i>Others</div></div></label>
+      </div>
+         <!-- Hidden textbox -->
+                            <div id="otherTextDiv" style="display: none; margin-top: 10px;">
+                                <input type="text" id="txtOther" class="form-control form-control-flat" value="NA" placeholder="Please specify">
+                            </div>
+      <!-- <div class=" mt-2 other-default-hidden" id="otherField1">
+     <input type="text" class="form-control form-control-flat " placeholder="Others" />
+   </div> -->
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('input[name="training_audience"]').forEach(cb => {
+        cb.addEventListener("change", function () {
+            let otherBox = document.getElementById("otherTextDiv");
+            if (this.value === "Others") {
+                otherBox.style.display = this.checked ? "block" : "none";
+            }
+        });
+    });
+</script>
+
+  <!-- Q3 Partners -->
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">3</span> Are you a partner with any of the following programs?</label>
+    <div class="row g-2 mt-1">
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="microsoft" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fab fa-microsoft me-1" style="color:#0078d4;"></i>Microsoft Learning Partner</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="aws" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fab fa-aws me-1" style="color:#ff9900;"></i>AWS Learning Partner</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="cisco" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-network-wired me-1" style="color:var(--bgcolor);"></i>Cisco Learning Partner</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="comptia" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main"><i class="fas fa-certificate me-1" style="color:var(--bgcolor);"></i>CompTIA Learning Partner</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="none" /><span class="mark-c"></span><div class="opt-body"><div class="opt-main" style="color:var(--text-muted-c);">None of the above</div></div></label>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label class="opt-card"><input type="checkbox" name="training_partner" value="other"  id="isCheckedOther2"/><span class="mark-c"></span><div class="opt-body"><div class="opt-main">Other</div></div></label>
+      </div>
+    <!-- <div class="mt-2 other-default-hidden" id="otherField2">
+     <input type="text" class="form-control form-control-flat " placeholder="Others"  />
+   </div> -->
+
+    <div id="partnerOtherBox" style="display: none; margin-top: 10px;">
+        <input type="text" id="partnerOtherText" class="form-control form-control-flat" value="NA" placeholder="Please specify">
+    </div>
+    </div>
+  </div>
+  <script>
+      document.querySelectorAll('input[name="training_partner"]').forEach(cb => {
+          cb.addEventListener("change", function () {
+              let otherBox = document.getElementById("partnerOtherBox");
+              if (this.value === "Others") {
+                  otherBox.style.display = this.checked ? "block" : "none";
+              }
+          });
+      });
+  </script>
+
+  <!-- Q4 Other CBT provider -->
+  <div class="mb-3">
+    <label class="form-label-custom"><span class="f-num">4</span> Do you currently offer computer-based testing with any other provider? <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto">
+        <label class="opt-card"><input type="radio" name="it_training1" value="yes" required /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label>
+      </div>
+      <div class="col-auto">
+        <label class="opt-card"><input type="radio" name="it_training1" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4" id="provider-field" >
+    <label class="form-label-custom"><span class="f-num">5</span> Specify the other provider</label>
+    <input type="text" class="form-control form-control-flat" placeholder="e.g. Pearson VUE, Prometric…" />
+  </div>
+
+  <div class="sub-head my-4"><i class="fas fa-desktop"></i>&nbsp; Testing Facilities</div>
+
+  <!-- Workstations -->
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">1</span> How many workstations do you want to use? <span class="text-req">*</span></label>
+    <select class="form-select form-select-flat mt-1" required>
+      <option value="" disabled selected>Select number of workstations…</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+      <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+      <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+      <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+      <option>More than 25</option>
+    </select>
+  </div>
+
+  <!-- Yes/No questions -->
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">2</span> Testing room is quiet and free of distractions <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training3" value="yes" required /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training3" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">3</span> Partitions between 2 or more computers <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training4" value="yes" required /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training4" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">4</span> Noise cancellation headphones or earplugs <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training5" value="yes" required /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training5" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <!-- Monitoring -->
+  <div class="mb-2">
+    <label class="form-label-custom"><span class="f-num">5</span> How will the test administrator monitor individuals while they are testing?<span class="text-req">*</span></label>
+    <p class="field-hint mb-2">Candidates must be monitored at all times.</p>
+    <div class="row g-2 mt-1">
+      <div class="col-12 col-md-6">
+        <label class="opt-card">
+          <input type="checkbox" name="monitoring" value="sight" />
+          <span class="mark-c"></span>
+          <div class="opt-body">
+            <div class="opt-main"><i class="fas fa-eye me-1" style="color:var(--bgcolor);"></i>Direct line of sight into the testing room</div>
+            <!-- <div class="opt-sub">Admin can see all candidates without obstruction</div> -->
+          </div>
+        </label>
+      </div>
+      <div class="col-12 col-md-6">
+        <label class="opt-card">
+          <input type="checkbox" name="monitoring" value="cctv" />
+          <span class="mark-c"></span>
+          <div class="opt-body">
+            <div class="opt-main"><i class="fas fa-video me-1" style="color:var(--bgcolor);"></i>Video cameras and monitors</div>
+            <!-- <div class="opt-sub">Live or recorded monitoring via camera system</div> -->
+          </div>
+        </label>
+      </div>
+      <div class="col-12 col-md-6">
+        <label class="opt-card">
+          <input type="checkbox" name="monitoring" value="inroom" />
+          <span class="mark-c"></span>
+          <div class="opt-body">
+            <div class="opt-main"><i class="fas fa-person me-1" style="color:var(--bgcolor);"></i>Administrator in test room</div>
+            <!-- <div class="opt-sub">Admin physically present within testing area</div> -->
+          </div>
+        </label>
+      </div>
+      <div class="col-12 col-md-6">
+        <label class="opt-card">
+          <input type="checkbox" id="monitorOtherChk" name="monitoring" value="other" />
+          <span class="mark-c"></span>
+          <div class="opt-body"><div class="opt-main">Other method</div> </div>
+        </label>
+      </div>
+    </div>
+    <div class="mt-2 other-default-hidden" id="monitorExpand">
+      <input type="text" class="form-control form-control-flat" placeholder="Others" />
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 5 — PHOTOS                 ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step p-4 p-md-5">
+
+  <div class="d-flex align-items-start gap-3 mb-3">
+    <div class="section-head-icon"><i class="fas fa-camera" style="font-size:19px;"></i></div>
+    <div>
+      <div class="section-title">Photo Submission</div>
+      <div class="section-desc">An application is not considered complete until all photos are received. Review the Photo Checklist and Facility Requirements PDF for details on what to include in the photos.</div>
+    </div>
+  </div>
+  <hr class="section-divider mb-4" />
+
+  <div class="info-box p-3 mb-4 d-flex gap-2">
+    <i class="fas fa-camera-retro mt-1 flex-shrink-0" style="color:var(--bgcolor);"></i>
+    <div>When submitting photos please ensure that they are labeled accordingly. For example, if submitting a photo of the check-in area please ensure the file is labeled as check-in area. If needed, you may submit the application and mail the photos later.</div>
+  </div>
+
+  <div class="row g-3">
+    <!-- 12 photo slots -->
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-map"></i> Photo 01</div>
+        <div class="photo-title mb-1">Labeled Floor Plan</div>
+        <div class="photo-desc mb-3">Floor plan (hand-sketched or digital) of test center layout, showing the location of the entrance, check-in/reception, Test Administrator's station, lockable storage, and testing stations.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*,.pdf" id="floorPlan"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-chair"></i> Photo 02</div>
+        <div class="photo-title mb-1">Administrator's Position</div>
+        <div class="photo-desc mb-3">This photo should show where the administrator will be located during delivery of the exams and should show the administrator's table and chair.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="adminPosition"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-panorama"></i> Photo 03</div>
+        <div class="photo-title mb-1">Test Administration View</div>
+        <div class="photo-desc mb-3">This photo should show the administrator's view of the candidates. All the delivery workstations, including the desktop of each workstation, should be visible. The photo must show an unobstructed view of each candidate including the ability to see their hands and keyboard from the administrator’s position. Please choose one of the following monitoring methods: If monitoring will be done in-room, please provide photo(s) taken from the test administrator’s seated position showing all testing stations (e.g. admin view right, admin view left). Hands and keyboards must be visible for all workstations. If monitoring will be done via a viewing window, the photo should be taken from the test administrator's seated position, showing what can be seen through the window from that position. Hands and keyboards must be visible for all workstations. If monitoring will be done via camera, see CCTV View photo description</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="adminView"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-video"></i> Photo 04</div>
+        <div class="photo-title mb-1">CCTV View</div>
+        <div class="photo-desc mb-3">This photo should show the CCTV monitor with all workstations visible. It needs to show exactly what a Test Administrator would see while monitoring candidates during testing. This field is required unless you are monitoring via a viewing window, or you are monitoring with a test administrator in the testing room.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="cctvView"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-desktop"></i> Photo 05</div>
+        <div class="photo-title mb-1">Test Delivery Area</div>
+        <div class="photo-desc mb-3">This photo should show all exam delivery workstations in a permanently enclosed area (four walls from floor to ceiling) that is separate from the rest of the office space. The room must be free of distractions such as books, paperwork, phones, test-related material on walls, printers or electronics etc. It should also show all exam delivery workstations that are being requested for approval. Number the workstations using a piece of paper to indicate the ones that you want to use. Be sure to include a photo of the exam delivery workstation that clearly shows the dimensions of the desk to ensure there is space for a keyboard, mouse, and erasable noteboard. Each workstation must be separated from the neighboring workstation by at least 4 feet (1.2m). If partitions are being used see below for additional requirements*. Include a tape measure to show the distance between each workstation. If there is not enough space between the workstations, you may use alternate workstations. If using alternate workstations please indicate which workstations you wish to use. You may upload multiple photos to this section if needed. *Partitions should be solid, permanent partitions or walls. Cardboard partitions are not acceptable. Partitions must be at least 5 feet (1.5 meters) in height and extend outward from the wall at least 4 feet (1.2 meters). Desktop partitions are acceptable as long as the height measured from the floor is at least 5 feet (1.5 meters), and the width measured outward from the wall is 4 feet (1.2 meters).</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="testDelivery"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-building"></i> Photo 06</div>
+        <div class="photo-title mb-1">Building Exterior</div>
+        <div class="photo-desc mb-3">Provide a photo of the exterior of the building showing the address, school/company signage and the parking area/or nearest public transportation location.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="buildingExterior"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-map-pin"></i> Photo 07</div>
+        <div class="photo-title mb-1">Building Address</div>
+        <div class="photo-desc mb-3">Provide a photo of the address shown on the exterior of the building.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="buildingAddress"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-sign-hanging"></i> Photo 08</div>
+        <div class="photo-title mb-1">Building Signage</div>
+        <div class="photo-desc mb-3">Provide a photo of the school/company signage on the exterior of the building. If there isn’t a sign outside of the building, include a photo of the entrance of the foyer showing a sign indicating that the test center is in the building (directory).</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="buildingSignage"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-id-card"></i> Photo 09</div>
+        <div class="photo-title mb-1">Check-in Area</div>
+        <div class="photo-desc mb-3">The check-in/reception area must show that there is a desktop PC which will be used to check-in candidates. The check-in process must be performed before allowing a candidate to enter the test room. The check-in/reception must show that there is a desktop PC for use by candidates checking in. Photos should also show available seating for candidates who arrive early. If the waiting area is separate from the check-in area, please provide a photo of both.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="checkinArea"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-image"></i> Photo 10</div>
+        <div class="photo-title mb-1">Neutral background at Check-in Area</div>
+        <div class="photo-desc mb-3">A neutral background is required in the check-in area to provide a background for the digital photo of the candidate (e.g., white painted wall). This space should allow roughly 2-3 feet (.6-1 meter) from the camera in order to capture an approved photo. This must be near the check-in desk as it is used to capture the candidate's photo upon admission. Please label in the photo where the neutral background is. The entire candidate's face and neck should be visible and centered in the picture. Only the candidate and the neutral background can appear in the photo and no other visible items are allowed in the photo including but not limited to door/window frames, plants, art, or other items on the wall.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="neutralBackground"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-lock"></i> Photo 11</div>
+        <div class="photo-title mb-1">Lockable Area</div>
+        <div class="photo-desc mb-3">Provide a photo of the lockable area where candidates will secure items outside of the testing area (e.g., lockers, lockable cabinet, lockable drawer). The locking mechanism must be visible in the photo (e.g., if it's a key lock, the key must be in the lock). This should be in or near the check-in area.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 10 MB.</div>
+        <input type="file" accept="image/*" id="lockableArea"/>
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-photo-film"></i> Photo 12</div>
+        <div class="photo-title mb-1">Other</div>
+        <div class="photo-desc mb-3">To be used if there are any additional photos (Multiple Upload up to 10 allowed).</div>
+        <div class="pb-3 uploading-info"> Upload 10 supported file. Max 10 MB.</div>
+        <input type="file" multiple accept="image/*,video/*" id="otherPhotos" />
+      </div>
+    </div>
+    <div class="col-12  ">
+      <div class="photo-card p-3">
+        <div class="photo-badge mb-2"><i class="fas fa-photo-film"></i> Video 13</div>
+        <div class="photo-title mb-1">Upload video</div>
+        <div class="photo-desc mb-3">If you would like to provide a video of the testing room or any other area of the testing center please upload it here. If you are providing a video of multiple areas in the testing center (testing room, check-in area, etc.) please upload separate videos for each area.</div>
+        <div class="pb-3 uploading-info"> Upload 1 supported file. Max 100 MB.</div>
+        <input type="file" multiple accept="video/*" id="videoFile"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ╔═══════════════════════════════════╗
+     ║  STEP 6 — ACCOMMODATIONS         ║
+     ╚═══════════════════════════════════╝ -->
+<div class="form-step p-4 p-md-5">
+
+  <div class="d-flex align-items-start gap-3 mb-3">
+    <div class="section-head-icon"><i class="fas fa-wheelchair" style="font-size:19px;"></i></div>
+    <div>
+      <div class="section-title">Accommodations &amp; Accessibility</div>
+      <div class="section-desc">Certaining is committed to providing access for all individuals with disabilities. In order to assist candidates with disabilities, please provide the following information.</div>
+    </div>
+  </div>
+  <hr class="section-divider mb-4" />
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">1</span> Does your facility have access for candidates with disabilities?  <span class="text-req">*</span></label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training6" value="yes" required /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training6" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">2</span> Do you have a separate room available and equipped with a test delivery workstation that can accommodate candidates with disabilities?</label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training7" value="yes" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training7" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">3</span> Would you be willing to shut down to provide private testing?</label>
+    <div class="row g-2 mt-1">
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training8" value="yes" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">Yes</div></div></label></div>
+      <div class="col-auto"><label class="opt-card"><input type="radio" name="it_training8" value="no" /><span class="mark-r"></span><div class="opt-body"><div class="opt-main">No</div></div></label></div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label-custom"><span class="f-num">4</span> Photos — Special Accommodation</label>
+    <p class="field-hint mb-2">Please provide photos up to 10 of the separate entrance, room, test delivery workstation that can accommodate testing candidates with disabilities.</p>
+    <input type="file" class="form-control form-file-flat" multiple accept="image/*" />
+    <div class="upload-note mt-2"><i class="fas fa-images"></i>Upload up to 10 supported files. Max 10 MB per file.</div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner p-4 d-flex align-items-center gap-4 flex-wrap mt-3">
+    <div class="cta-icon"><i class="fas fa-paper-plane"></i></div>
+    <div>
+      <div class="cta-title mb-1">Ready to Submit?</div>
+      <div class="cta-desc text-white">Click <strong>Submit Application</strong> below to complete your CATC application. Our team will review it within <span style="color:rgba(255, 255, 255, 0.7);font-weight:600;">5–7 business days</span>.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════ SUCCESS SCREEN ══════════ -->
+<div class="success-screen p-5 text-center" id="successScreen">
+  <div class="success-ring mx-auto mb-4"><i class="fas fa-check"></i></div>
+  <div class="success-title mb-2">Application Submitted!</div>
+  <p class="success-sub mx-auto mb-4">
+    Thank you for applying to become a Certaining Authorized Test Centre. Our team will review your application and contact you within 5–7 business days.
+  </p>
+  <div class="success-ref p-3 mx-auto d-inline-flex">
+    <i class="fas fa-hashtag me-2" style="color:var(--bgcolor);"></i>
+    Reference ID: &nbsp;<strong id="refNum">CATC-2025-XXXXX</strong>
+  </div>
+</div>
+
+
+<!-- ══════════ FOOTER NAV ══════════ -->
+<div class="form-footer d-flex align-items-center justify-content-between p-3 p-md-4 px-md-5" id="footerNav">
+
+  <button class="btn-back-custom" id="prevBtn" disabled onclick="changeStep(-1)">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+
+  <div class="text-center step-counter-wrap">
+    <div class="step-counter-num" id="pageNum">1 <span>/ 6</span></div>
+    <div class="step-counter-lbl">Step</div>
+  </div>
+
+  <button class="btn-next-custom" id="nextBtn">
+    Continue <i class="fas fa-arrow-right"></i>
+  </button>
+
+</div>
+
+</div><!-- /form-card -->
+</div><!-- /page-wrap -->
+
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+let cur = 0;
+const steps   = document.querySelectorAll('.form-step');
+const dots    = document.querySelectorAll('.s-dot');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageNum = document.getElementById('pageNum');
+// (function () {
+/* ─── Validate current step ─── */
+function validate(step) {
+  let ok = true, first = null;
+  step.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
+    let fail = false;
+    if (f.type === 'checkbox') {
+      fail = !f.checked;
+    } else if (f.type === 'radio') {
+      const grp = step.querySelectorAll(`input[name="${f.name}"]`);
+      fail = !Array.from(grp).some(r => r.checked);
+    } else if (f.type !== 'file') {
+      fail = !f.value.trim();
+    }
+    if (fail) {
+      ok = false;
+      f.classList.add('error');
+      if (!first) first = f;
+    }
+  });
+
+  if (!ok && first) {
+    (first.closest('.opt-card, .consent-card, .mb-3, .mb-4') || first)
+      .scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  return ok;
+}
+
+/* ─── Clear errors on input ─── */
+document.querySelectorAll('input, select, textarea').forEach(el => {
+  el.addEventListener('input',  () => el.classList.remove('error'));
+  el.addEventListener('change', () => el.classList.remove('error'));
+});
+
+/* ─── Update progress dots & buttons ─── */
+function updateUI() {
+  dots.forEach((d, i) => {
+    d.classList.remove('active', 'done');
+    const icon = d.querySelector('.s-icon');
+    if (i < cur) {
+      d.classList.add('done');
+      icon.innerHTML = '<i class="fas fa-check" style="font-size:11px;"></i>';
+    } else {
+      icon.innerHTML = icon.dataset.orig;
+      if (i === cur) d.classList.add('active');
+    }
+  });
+
+  prevBtn.disabled = cur === 0;
+  pageNum.innerHTML = `${cur + 1} <span>/ ${steps.length}</span>`;
+
+  if (cur === steps.length - 1) {
+    nextBtn.innerHTML = 'Submit Application <i class="fas fa-paper-plane ms-1"></i>';
+    nextBtn.className = 'btn-submit-custom';
+  } else {
+    nextBtn.innerHTML = 'Continue <i class="fas fa-arrow-right ms-1"></i>';
+    nextBtn.className = 'btn-next-custom';
+  }
+}
+
+/* ─── Change step ─── */
+function changeStep(dir) {
+  if (dir === 1 && !validate(steps[cur])) return;
+  steps[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(steps.length - 1, cur + dir));
+  steps[cur].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateUI();
+}
+
+/* ─── Next/Submit button ─── */
+nextBtn.addEventListener('click', () => {
+  if (cur === steps.length - 1) {
+    if (!validate(steps[cur])) return;
+    // Show success
+    steps[cur].classList.remove('active');
+    document.getElementById('successScreen').classList.add('show');
+    document.getElementById('footerNav').style.display = 'none';
+    document.getElementById('refNum').textContent =
+      'CATC-2025-' + Math.floor(10000 + Math.random() * 90000);
+    dots.forEach(d => d.classList.remove('active', 'done'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    changeStep(1);
+  }
+});
+
+/* ─── Other provider reveal ─── */
+document.querySelectorAll('input[name="it_training1"]').forEach(r => {
+  r.addEventListener('change', () => {
+    document.getElementById('provider-field').style.display =
+      (r.value === 'yes' && r.checked) ? 'block' : 'none';
+  });
+});
+
+/* ─── Monitor "Other" expand ─── */
+document.getElementById('monitorOtherChk')?.addEventListener('change', function() {
+  document.getElementById('monitorExpand').style.display = this.checked ? 'block' : 'none';
+});
+const otherCheck = document.getElementById('isCheckedOther1');
+const otherField = document.getElementById('otherField1');
+const otherCheck2 = document.getElementById('isCheckedOther2');
+const otherField2 = document.getElementById('otherField2');
+
+// function toggleOtherField() {
+//   otherField.style.display = otherCheck.checked ? 'block' : 'none';
+// }
+// otherCheck?.addEventListener('change', toggleOtherField);
+// toggleOtherField();
+// function toggleOtherField2() {
+//   otherField2.style.display = otherCheck2.checked ? 'block' : 'none';
+// }
+// otherCheck2?.addEventListener('change', toggleOtherField2);
+// toggleOtherField2();
+updateUI();
+// })();
+</script>
+</body>
+</html>
